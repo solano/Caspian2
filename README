@@ -1,0 +1,12 @@
+This is (going to) be a simple multitask OS, developved in my spare time.
+It may take a few years.
+
+Dependencies:
+
+- Cross versions of binutils and gcc targeted at i586-elf
+- NASM
+
+Optional:
+- qemu
+- GRUB (if you're not using qemu, which can boot without a bootloader, or
+if you want to actually test this in a computer)
