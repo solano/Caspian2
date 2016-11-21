@@ -2,15 +2,9 @@
 
 #include <string.h>
 
-size_t strlen(const char* str) {
-    size_t len = 0;
-    while(str[len])
-        len++;
-    return len;
-}
-
-/* reverse string in place */
-char* reverse(char str[]) {
+/* NOT IN STANDARD LIBC
+ * Reverses string in place and returns it */
+char* reverse(char* str) {
     int i, j;
     char c;
 
@@ -20,4 +14,19 @@ char* reverse(char str[]) {
         str[j] = c;
     }
     return str;
+}
+
+size_t strlen(const char* str) {
+    size_t len = 0;
+    while(str[len])
+        len++;
+    return len;
+}
+
+void* memcpy(void *dstptr, const void *srcptr, size_t n) {
+    unsigned char* dst = (unsigned char*) dstptr;
+    const unsigned char* src = (const unsigned char*) srcptr;
+    for (unsigned int i=0; i<n; i++)
+        dst[i] = src[i];
+    return dstptr;
 }

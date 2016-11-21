@@ -31,7 +31,6 @@ $(KERNEL_ARCH_OBJS) \
 kernel/kernel.o \
 kernel/string.o \
 kernel/kio.o \
-kernel/memcpy.o \
 
 OBJS:=\
 $(ARCHDIR)/boot.o \
