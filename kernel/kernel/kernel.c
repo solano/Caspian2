@@ -11,12 +11,20 @@
 #error "This needs to be compiled with an ix86-elf compiler"
 #endif
 
-/* Text mode provided by hardware */
 #include <kernel/tty.h>
 #include <kernel/kio.h>
 
-/* Proper kernel starts */
+#include <kernel/gdt.h>
+
+gdt_entry GDT[3] =
+{   {.base=0, .limit=0,          .type=0},      // Selector 0x00 can't be used
+    {.base=0, .limit=0xffffffff, .type=0x9A},   // Code
+    {.base=0, .limit=0xffffffff, .type=0x92}};  // Data
+uint8_t GDT_encoded[3*8]; // each entry takes 8 bytes
+
 void kernel_main(void) {
+    load_gdt(GDT, GDT_encoded, 3);
+
     term_init();
     kprint("Hello, world!\n");
     kprintf("TEST: %x in hexadecimal means %u in decimal", 1234, 1234);
