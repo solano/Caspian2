@@ -39,13 +39,14 @@ _start:
         mov esp, stack_top
 
         ; TODO: Enable paging
-        ; TODO: Load GDT
 
         ; Before calling the high-level kernel, the ABI requires our stack
         ; to be 16-byte aligned. We've pushed 0 bytes to it, a multiple of
         ; 16, so we're ready to go.
         extern kernel_main
         call kernel_main
+        
+       ; int 0x21 ; test IRQ1
 
         ; Nothing more to do? Do an infinite loop!
         cli     ; Disable interrupts

@@ -74,3 +74,7 @@ void kprintf(const char* str, ...) {
     }
     va_end(ap);
 }
+
+void ktest(void) {
+    kprint("TEST\n");
+}
