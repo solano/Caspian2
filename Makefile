@@ -9,10 +9,14 @@ iso: all
 	@config/iso.sh
 	@echo "Done."
 
-run: iso
+runiso: iso
 	@echo "Emulating..."
 	@qemu-system-i386 -cdrom Caspian2.iso 
 
-runfast: all
+run: all
 	@echo "Emulating..."
-	@qemu-system-i386 -kernel build/kernel/kernel.bin
+	@./run.sh
+
+debug: all
+	@echo "Emulating..."
+	@./debug.sh

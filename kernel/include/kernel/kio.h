@@ -6,6 +6,7 @@
 
 char* itoa(uint32_t n, const uint8_t base);
 
+void kputc(const char c);
 void kprint(const char* str);
 void kprintf(const char* str, ...);
 

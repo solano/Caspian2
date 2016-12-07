@@ -30,3 +30,7 @@ void* memcpy(void *dstptr, const void *srcptr, size_t n) {
         dst[i] = src[i];
     return dstptr;
 }
+
+inline char* strcpy(char* restrict s1, const char* restrict s2) {
+    return memcpy(s1, s2, strlen(s1));
+}

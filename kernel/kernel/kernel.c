@@ -26,9 +26,13 @@ void kernel_main(void) {
     load_gdt(GDT, GDT_encoded, 3);
     term_init();
 
-    kprintf("IDT is in %x\n", (uint32_t) kernel_load_idt());
+    kprintf("IDT is in %8X\n", (uint32_t) kernel_load_idt());
 
     kprint("Hello, world!\n");
     kprintf("TEST: %x in hexadecimal means %u in decimal\n", 1234, 1234);
+    kprintf("TEST: %8X is a plausible address\n", 0x132af);
+    kprintf("TEST: %3s %4s %5s %6s, world\n",
+            "hello", "hello", "hello", "hello");
+    kprintf("TEST: %1s %2X %s\n", "hello", 12412, "hello");
     isr_keyboard();
 }
