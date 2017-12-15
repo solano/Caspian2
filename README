@@ -1,5 +1,4 @@
-This is (going to) be a simple multitask OS, developed in my spare time.
-It may take a few years.
+UPDATE: Dead project. For obvious reasons.
 
 Dependencies:
 
@@ -8,5 +7,4 @@ Dependencies:
 
 Optional:
 - qemu
-- GRUB (if you're not using qemu, which can boot without a bootloader, or
-if you want to actually test this in a computer)
+- GRUB (if you're not using qemu)
